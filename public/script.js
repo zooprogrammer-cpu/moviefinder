@@ -1,4 +1,6 @@
-const tmdbKey = '12345';
+// import API_KEY from '/scripts.js';
+
+const tmdbKey = '123';
 const tmdbBaseUrl = 'https://api.themoviedb.org';
 const playBtn = document.getElementById('playBtn');
 
@@ -14,7 +16,10 @@ const getGenres = async () => {
 
     if(response.ok) {
       const jsonResponse = await response.json(); 
-      console.log(jsonResponse);
+      // console.log(jsonResponse);
+      const genres = jsonResponse.genres; 
+      console.log(genres);
+      return genres; 
     }
   } 
   catch(error) {
