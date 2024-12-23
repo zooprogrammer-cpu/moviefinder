@@ -1,6 +1,6 @@
 // import API_KEY from '/scripts.js';
 
-const tmdbKey = '123';
+const tmdbKey = '12345';
 const tmdbBaseUrl = 'https://api.themoviedb.org';
 const playBtn = document.getElementById('playBtn');
 
@@ -30,8 +30,25 @@ const getGenres = async () => {
 
 };
 
-const getMovies = () => {
+const getMovies = async() => {
   const selectedGenre = getSelectedGenre();
+  const discoverMovieEndpoint = '/3/discover/movie';
+  const requestParams = `?api_key=${tmdbKey}&with_genres=${selectedGenre}`;
+  const urlToFetch = `${tmdbBaseUrl}${discoverMovieEndpoint}${requestParams}`;
+
+  try {
+    const response = await fetch(urlToFetch);
+    if (response.ok) {
+      const jsonResponse = await response.json(); 
+      // console.log('getMovies', jsonResponse);
+      const movies = jsonResponse.results;
+      // console.log(movies);
+      return movies; 
+    }
+  }
+  catch (error) {
+    console.log(error);
+  }
 
 };
 
