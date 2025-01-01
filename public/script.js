@@ -1,6 +1,6 @@
 // import API_KEY from '/scripts.js';
 
-const tmdbKey = '12345';
+const tmdbKey = 'bb7ef615560ce9f602d934d61d982bd9';
 const tmdbBaseUrl = 'https://api.themoviedb.org';
 const playBtn = document.getElementById('playBtn');
 
@@ -73,8 +73,6 @@ const getMovieInfo = async(movie) => {
     if (response.ok) {
       // const jsonResponse = response.json();
       const movieInfo = response.json();
-      console.log('movieInfo');
-      console.log(movieInfo);
       return movieInfo; 
     }
   }
