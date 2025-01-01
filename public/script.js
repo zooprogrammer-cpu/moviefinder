@@ -3,7 +3,21 @@
 const tmdbKey = 'bb7ef615560ce9f602d934d61d982bd9';
 const tmdbBaseUrl = 'https://api.themoviedb.org';
 const playBtn = document.getElementById('playBtn');
+const addToWatchlistBtn = document.getElementById('addToWatchlistBtn');
 
+let movieInfo;
+
+document.addEventListener('DOMContentLoaded', () => {
+  const addToWatchlistBtn = document.getElementById('addToWatchlistBtn');
+
+  if (addToWatchlistBtn) {
+    addToWatchlistBtn.onclick = async () => {
+      console.log('Add to Watchlist clicked');
+      const info = await movieInfo; 
+      console.log('info::', info);
+    };
+  }
+});
 
 document.addEventListener('DOMContentLoaded', () => {
   const genresSelect = document.getElementById('genres');
@@ -72,14 +86,13 @@ const getMovieInfo = async(movie) => {
     const response = await fetch(urlToFetch);
     if (response.ok) {
       // const jsonResponse = response.json();
-      const movieInfo = response.json();
+      movieInfo = response.json();
       return movieInfo; 
     }
   }
   catch (error) {
     console.log(error);
   }
-
 
 };
 
