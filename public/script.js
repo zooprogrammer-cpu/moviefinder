@@ -15,6 +15,29 @@ document.addEventListener('DOMContentLoaded', () => {
       console.log('Add to Watchlist clicked');
       const info = await movieInfo; 
       console.log('info::', info);
+   
+      const movie = {
+        id : info.movieId,
+        movieTitle : info.movieTitle 
+      };
+
+      try {
+        const response = await fetch('/add-movie', { //TODO: Getting error here
+          method: 'POST',
+          headers: {
+            'Content-Type' : 'application/json'
+          },
+          body: JSON.stringify(movie)
+        });
+
+        if (response.ok) {
+          console.log('Movie added to the array');
+        } else{
+          console.log('Failed to add movie');
+        }
+      } catch (error) {
+        console.error('Error: ', error);
+      }
     };
   }
 });
