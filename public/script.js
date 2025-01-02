@@ -17,24 +17,24 @@ document.addEventListener('DOMContentLoaded', () => {
       console.log('info::', info);
    
       const movie = {
-        id : info.movieId,
-        movieTitle : info.movieTitle 
+        movieId : info.id,
+        movieTitle : info.title 
       };
+      console.log('movie in script::', movie);
 
       try {
-        const response = await fetch('/add-movie', { //TODO: Getting error here
+        const response = await fetch('/add-movie', { 
           method: 'POST',
           headers: {
             'Content-Type' : 'application/json'
           },
           body: JSON.stringify(movie)
         });
+        console.log('response::' , response);
 
-        if (response.ok) {
-          console.log('Movie added to the array');
-        } else{
+        if (!response.ok) {
           console.log('Failed to add movie');
-        }
+        } 
       } catch (error) {
         console.error('Error: ', error);
       }
