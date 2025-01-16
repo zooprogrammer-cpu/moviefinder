@@ -1,3 +1,5 @@
+require('dotenv').config(); // Add this line at the top of your server.js
+
 const express = require('express');
 const bodyParser = require('body-parser');
 const app = express(); 
@@ -21,7 +23,7 @@ app.post('/add-movie',(req, res, next) =>{
     try {
         console.log('req.body:', req.body);
         const {movieId, movieTitle} = req.body;
-        const newMovie = {id: movieId, name: movieTitle};
+        const newMovie = {movieId: movieId, movieTitle: movieTitle};
         moviesArray.push(newMovie);
         res.status(201).send('Movie added to the array!');
         console.log('Updated moviesArray:', moviesArray); 

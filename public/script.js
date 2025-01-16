@@ -1,6 +1,5 @@
 // import API_KEY from '/scripts.js';
-
-const tmdbKey = 'bb7ef615560ce9f602d934d61d982bd9';
+const apiKey = '';
 const tmdbBaseUrl = 'https://api.themoviedb.org';
 const playBtn = document.getElementById('playBtn');
 const addToWatchlistBtn = document.getElementById('addToWatchlistBtn');

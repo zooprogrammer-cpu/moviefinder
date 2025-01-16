@@ -11,7 +11,7 @@ body {
     font-size: 80px;
 }
 
-#genreForm, #playBtn {
+#genreForm, #playBtn,#addToWatchlistBtn {
     text-align: center;
     margin: 0px auto;
     display: block;
@@ -51,7 +51,7 @@ img#moviePoster {
     padding:  32px;
 }
 
-#playBtn {
+#playBtn,#addToWatchlistBtn {
     margin-top: 20px;
     font-size: 25px;
     padding: 7px 10px;
