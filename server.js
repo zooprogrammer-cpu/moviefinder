@@ -26,7 +26,8 @@ app.post('/add-movie',(req, res, next) =>{
         const newMovie = {movieId: movieId, movieTitle: movieTitle};
         moviesArray.push(newMovie);
         res.status(201).send('Movie added to the array!');
-        console.log('Updated moviesArray:', moviesArray); 
+        console.log('Updated moviesArray:', moviesArray);
+        console.log('Testing!'); 
     
         //Write the updated moviesArray back to data.js
         const dataPath = path.join(__dirname, 'data.js');
